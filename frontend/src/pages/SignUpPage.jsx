@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import AuthImagePattern from "../components/AuthImagePattern";
 import toast from "react-hot-toast";
 import { Loader2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,53 +29,55 @@ const SignUpPage = () => {
     return true;
   };
 
-  const handlSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const success = validateForm();
-
     if (success === true) signup(formData);
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2">
+    <div className="min-h-screen grid lg:grid-cols-2 bg-gradient-to-br from-indigo-50 via-white to-indigo-100">
       {/* left side */}
       <div className="flex flex-col justify-center items-center p-6 sm:p-12">
-        <div className="w-full max-w-md space-y-8">
-          {/**LOGO */}
-          <div className="text-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full max-w-md bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-8 space-y-8"
+        >
+          {/* LOGO */}
+          <div className="text-center">
             <div className="flex flex-col items-center gap-2 group">
-              <div className="size-18 flex items-center justify-center">
-                <img
-                  width="94"
-                  height="94"
-                  src="https://img.icons8.com/3d-fluency/94/chat.png"
-                  alt="chat"
-                  className="w-12 h-12"
-                />
-              </div>
-              <h1 className="text-2xl font-bold mt-2">Create Account</h1>
-              <p className="text-base-content/60">
+              <motion.img
+                src="https://img.icons8.com/3d-fluency/94/chat.png"
+                alt="chat"
+                className="w-16 h-16 drop-shadow-lg"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 150 }}
+              />
+              <h1 className="text-3xl font-extrabold mt-3 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                Create Account
+              </h1>
+              <p className="text-gray-500 mt-1">
                 Get started with your free account
               </p>
             </div>
           </div>
-          {/**LOGO ends */}
 
-          {/**Form starts */}
-          <form onSubmit={handlSubmit} className="space-y-6">
-            {/**Full Name Input */}
+          {/* FORM */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Full Name */}
             <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Full Name</span>
+              <label className="label font-medium text-gray-700">
+                Full Name
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                  <FaUser className="w-5 h-5 text-gray-400" />
-                </div>
+                <FaUser className="absolute top-3 left-3 text-gray-400" />
                 <input
                   type="text"
-                  className={`input input-bordered w-full pl-10`}
+                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-0 focus:ring-indigo-500 transition-all"
                   placeholder="Your Name"
                   value={formData.fullName}
                   onChange={(e) =>
@@ -84,18 +87,14 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            {/**Email Input */}
+            {/* Email */}
             <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Email</span>
-              </label>
+              <label className="label font-medium text-gray-700">Email</label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                  <FaEnvelope className="size-5 text-base-content/40" />
-                </div>
+                <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
                 <input
-                  type="text"
-                  className={`input input-bordered w-full pl-10`}
+                  type="email"
+                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all"
                   placeholder="Your Email Address"
                   value={formData.email}
                   onChange={(e) =>
@@ -105,18 +104,16 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            {/**Password Input */}
+            {/* Password */}
             <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Password</span>
+              <label className="label font-medium text-gray-700">
+                Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                  <FaLock className="w-5 h-5 text-gray-400" />
-                </div>
+                <FaLock className="absolute top-3 left-3 text-gray-400" />
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="input input-bordered w-full pl-10"
+                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all"
                   placeholder="••••••••"
                   value={formData.password}
                   onChange={(e) =>
@@ -125,48 +122,48 @@ const SignUpPage = () => {
                 />
                 <button
                   type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  className="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-600 transition"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? (
-                    <FaEyeSlash className="w-5 h-5 text-gray-400" />
-                  ) : (
-                    <FaEye className="w-5 h-5 text-gray-400" />
-                  )}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
             </div>
 
-            <button
+            {/* Submit */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
               type="submit"
-              className="btn btn-primary w-full"
               disabled={isSigningUp}
+              className="btn btn-primary w-full rounded-xl h-12 font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
             >
               {isSigningUp ? (
                 <>
-                  <Loader2 className="size-5 animate-spin" />
-                  Loading...
+                  <Loader2 className="animate-spin w-5 h-5" />
+                  Creating...
                 </>
               ) : (
                 "Create Account"
               )}
-            </button>
+            </motion.button>
           </form>
-          <div className="text-center">
-            <p className="text-base-content/60">
-              Already have an account?{" "}
-              <Link to="/login" className="link link-primary">
-                Sign in
-              </Link>
-            </p>
+
+          <div className="text-center text-gray-600">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-indigo-500 font-medium hover:underline"
+            >
+              Sign in
+            </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/**right side */}
+      {/* right side */}
       <AuthImagePattern
-        title=" Join our Community "
-        subtitle=" Connect with friends, share moments and stay in touch with your loved ones. "
+        title="Join our Community"
+        subtitle="Connect with friends, share moments and stay in touch with your loved ones."
       />
     </div>
   );
