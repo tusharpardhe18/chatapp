@@ -37,14 +37,14 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-gradient-to-br from-indigo-50 via-white to-indigo-100">
+    <div className="min-h-screen grid bg-gradient-to-br from-indigo-900 via-gray-950 to-indigo-800">
       {/* left side */}
       <div className="flex flex-col justify-center items-center p-6 sm:p-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-md bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-8 space-y-8"
+          className="w-full max-w-md bg-black/30 backdrop-blur-xl shadow-xl rounded-2xl p-8 space-y-8"
         >
           {/* LOGO */}
           <div className="text-center">
@@ -74,10 +74,10 @@ const SignUpPage = () => {
                 Full Name
               </label>
               <div className="relative">
-                <FaUser className="absolute top-3 left-3 text-gray-400" />
+                <FaUser className="absolute top-3 left-3 text-gray-400 z-10" />
                 <input
                   type="text"
-                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-0 focus:ring-indigo-500 transition-all"
+                  className="border-none input input-bordered w-full pl-10 rounded-xl focus:ring-0 transition-all"
                   placeholder="Your Name"
                   value={formData.fullName}
                   onChange={(e) =>
@@ -91,10 +91,10 @@ const SignUpPage = () => {
             <div className="form-control">
               <label className="label font-medium text-gray-700">Email</label>
               <div className="relative">
-                <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
+                <FaEnvelope className="absolute top-3 left-3 text-gray-400 z-10" />
                 <input
                   type="email"
-                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all"
+                  className="border-none input input-bordered w-full pl-10 rounded-xl focus:ring-0 transition-all"
                   placeholder="Your Email Address"
                   value={formData.email}
                   onChange={(e) =>
@@ -110,10 +110,10 @@ const SignUpPage = () => {
                 Password
               </label>
               <div className="relative">
-                <FaLock className="absolute top-3 left-3 text-gray-400" />
+                <FaLock className="absolute top-3 left-3 text-gray-400 z-10" />
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all"
+                  className="border-none input input-bordered w-full pl-10 rounded-xl focus:ring-0 transition-all"
                   placeholder="••••••••"
                   value={formData.password}
                   onChange={(e) =>
@@ -161,10 +161,10 @@ const SignUpPage = () => {
       </div>
 
       {/* right side */}
-      <AuthImagePattern
+      {/* <AuthImagePattern
         title="Join our Community"
         subtitle="Connect with friends, share moments and stay in touch with your loved ones."
-      />
+      /> */}
     </div>
   );
 };

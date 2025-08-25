@@ -14,7 +14,7 @@ const Navbar = () => {
       <Link
         to={to}
         className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
-          ${isActive ? "bg-indigo-500 text-white shadow-md" : "hover:bg-gray-100/60 text-gray-700"}`}
+          ${isActive ? "bg-indigo-500 text-white shadow-md" : "hover:bg-gray-600/60 text-gray-100"}`}
       >
         {icon}
         <span className="hidden sm:inline">{label}</span>
@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed w-full top-0 z-40 bg-white/70 backdrop-blur-lg border-b border-gray-200 shadow-sm">
+    <header className="fixed w-full top-0 z-40 bg-black/70 backdrop-blur-lg border-b border-gray-900 shadow-sm">
       <div className="container mx-auto px-4 h-16">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
@@ -44,7 +44,7 @@ const Navbar = () => {
           </Link>
 
           {/* Nav Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 ">
             {navLink("/settings", "Settings", <Settings className="w-4 h-4" />)}
 
             {authUser && (

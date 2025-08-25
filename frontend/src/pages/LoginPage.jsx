@@ -33,14 +33,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-gradient-to-br from-indigo-50 via-white to-indigo-100">
+    <div className="min-h-screen grid bg-gradient-to-br from-indigo-900 via-gray-950 to-indigo-800">
       {/* Left side */}
       <div className="flex flex-col justify-center items-center p-6 sm:p-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-md bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl p-8 space-y-8"
+          className="w-full max-w-md bg-black/30 backdrop-blur-xl shadow-xl rounded-2xl p-8 space-y-8"
         >
           {/* Logo */}
           <div className="text-center">
@@ -64,10 +64,10 @@ const LoginPage = () => {
             <div className="form-control">
               <label className="label font-medium text-gray-700">Email</label>
               <div className="relative">
-                <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
+                <FaEnvelope className="absolute top-3 left-3 text-gray-100 z-10" />
                 <input
                   type="email"
-                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all"
+                  className="border-none input input-bordered w-full pl-10 rounded-xl focus:ring-0 transition-all"
                   placeholder="Your Email Address"
                   value={formData.email}
                   onChange={(e) =>
@@ -79,12 +79,14 @@ const LoginPage = () => {
 
             {/* Password Input */}
             <div className="form-control">
-              <label className="label font-medium text-gray-700">Password</label>
+              <label className="label font-medium text-gray-700">
+                Password
+              </label>
               <div className="relative">
-                <FaLock className="absolute top-3 left-3 text-gray-400" />
+                <FaLock className="absolute top-3 left-3 text-gray-400 z-10" />
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="input input-bordered w-full pl-10 rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all"
+                  className="border-none input input-bordered w-full pl-10 rounded-xl focus:ring-0 transition-all"
                   placeholder="••••••••"
                   value={formData.password}
                   onChange={(e) =>
@@ -120,11 +122,11 @@ const LoginPage = () => {
           </form>
 
           {/* Switch to Signup */}
-          <div className="text-center text-gray-600">
+          <div className="text-center text-gray-100">
             Don&apos;t have an account?{" "}
             <Link
               to="/signup"
-              className="text-indigo-500 font-medium hover:underline"
+              className="text-indigo-400 font-medium hover:underline"
             >
               Sign up
             </Link>
@@ -133,10 +135,10 @@ const LoginPage = () => {
       </div>
 
       {/* Right side */}
-      <AuthImagePattern
+      {/* <AuthImagePattern
         title="Welcome Back 👋"
         subtitle="Reconnect with your friends, share updates, and pick up where you left off."
-      />
+      /> */}
     </div>
   );
 };
