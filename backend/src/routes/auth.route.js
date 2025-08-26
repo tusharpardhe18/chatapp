@@ -6,7 +6,7 @@ import {
   updateProfile,
   checkAuth,
 } from "../controllers/auth.controller.js";
-import { portectRoute } from "../middleware/auth.middleware.js";
+import { protectRoute } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
@@ -14,8 +14,8 @@ router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);
 
-router.post("/update-profile", portectRoute, updateProfile);
+router.put("/update-profile", protectRoute, updateProfile);
 
-router.get("/check", portectRoute, checkAuth);
+router.get("/check", protectRoute, checkAuth);
 
 export default router;
