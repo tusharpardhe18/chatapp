@@ -14,7 +14,11 @@ const Navbar = () => {
       <Link
         to={to}
         className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all
-          ${isActive ? "bg-indigo-500 text-white shadow-md" : "hover:bg-gray-600/60 text-gray-100"}`}
+          ${
+            isActive
+              ? "bg-indigo-500 text-white shadow-md"
+              : "hover:bg-gray-600/60 text-gray-100"
+          }`}
       >
         {icon}
         <span className="hidden sm:inline">{label}</span>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 const AuthImagePattern = ({ title, subtitle }) => {
   return (
     <div className="relative hidden lg:flex items-center justify-center bg-gradient-to-bl from-indigo-500 via-purple-500 to-pink-500 overflow-hidden">
-
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
