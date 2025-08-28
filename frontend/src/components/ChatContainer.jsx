@@ -21,6 +21,7 @@ const ChatContainer = () => {
 
   useEffect(() => {
     getMessages(selectedUser._id);
+
     subscribeToMessages();
 
     return () => unsubscribeFromMessages();
@@ -51,68 +52,48 @@ const ChatContainer = () => {
     <div className="flex-1 flex flex-col overflow-auto">
       <ChatHeader />
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-thin">
-        {messages.map((message, idx) => {
-          const isOwn = message.senderId === authUser._id;
-          const showAvatar =
-            idx === 0 || messages[idx - 1].senderId !== message.senderId;
-
-          return (
-            <div
-              key={message._id}
-              className={`chat ${isOwn ? "chat-end" : "chat-start"} animate-fadeIn`}
-              ref={messageEndRef}
-            >
-              {/* Avatar only if new sender */}
-              {showAvatar && (
-                <div className="chat-image avatar">
-                  <div className="size-9 rounded-full border">
-                    <img
-                      src={
-                        isOwn
-                          ? authUser.profilePic || "/avatar.png"
-                          : selectedUser.profilePic || "/avatar.png"
-                      }
-                      alt="profile pic"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Message bubble */}
-              <div
-                className={`chat-bubble px-3 py-2 shadow-sm rounded-2xl ${
-                  isOwn
-                    ? "bg-primary text-primary-content"
-                    : "bg-base-200 text-base-content"
-                }`}
-              >
-                {message.image && (
-                  <img
-                    src={message.image}
-                    alt="Attachment"
-                    className="sm:max-w-[220px] rounded-md mb-2 hover:scale-[1.02] transition-transform duration-200"
-                  />
-                )}
-                {message.text && <p className="break-words">{message.text}</p>}
-
-                {/* Timestamp inside bubble */}
-                <span className="text-[10px] opacity-60 mt-1 self-end block">
-                  {formatMessageTime(message.createdAt)}
-                </span>
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((message) => (
+          <div
+            key={message._id}
+            className={`chat ${
+              message.senderId === authUser._id ? "chat-end" : "chat-start"
+            }`}
+            ref={messageEndRef}
+          >
+            <div className=" chat-image avatar">
+              <div className="size-10 rounded-full border">
+                <img
+                  src={
+                    message.senderId === authUser._id
+                      ? authUser.profilePic || "/avatar.png"
+                      : selectedUser.profilePic || "/avatar.png"
+                  }
+                  alt="profile pic"
+                />
               </div>
             </div>
-          );
-        })}
+            <div className="chat-bubble flex flex-col">
+              {message.image && (
+                <img
+                  src={message.image}
+                  alt="Attachment"
+                  className="sm:max-w-[200px] rounded-md mb-2"
+                />
+              )}
+              {message.text && <p>{message.text}</p>}
+            </div>
+            <div className="chat-header mb-1">
+              <time className="text-xs opacity-50 ml-1">
+                {formatMessageTime(message.createdAt)}
+              </time>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Input */}
-      <div className="border-t border-base-300 bg-base-100">
-        <MessageInput />
-      </div>
+      <MessageInput />
     </div>
   );
 };
-
 export default ChatContainer;
