@@ -6,7 +6,11 @@ let io;
 function initSocket(server) {
   io = new Server(server, {
     cors: {
-      origin: ["http://localhost:5173"], // update for prod
+      origin:
+        process.env.NODE_ENV === "production"
+          ? process.env.CLIENT_URL // e.g. https://your-frontend.onrender.com
+          : "http://localhost:5173",
+      credentials: true,
     },
   });
 
