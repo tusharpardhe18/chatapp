@@ -1,12 +1,108 @@
-# React + Vite
+# Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![ChatApp Screenshot](https://github.com/tusharpardhe18/MyPortfolio/blob/main/public/assets/projects/chat-app.png)
 
-Currently, two official plugins are available:
+Welcome to my **real-time chat application**. It provides authentication, messaging, user profile management, and a responsive UI with modern design practices.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Live Site**: [tusharkaportfolio.vercel.app](https://tusharkaportfolio.vercel.app/)  
 
-## Expanding the ESLint configuration
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
+[![Website Status](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Ftusharpardhe18.github.io%2FMyPortfolio%2F)](https://tusharpardhe18.github.io/MyPortfolio/)  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Project Overview
+- A **real-time chat app frontend** built with React, Vite, and Zustand.  
+- Features user authentication, profile management, and a chat interface.  
+- Designed with **Tailwind CSS** for responsiveness and clean UI/UX.  
+
+---
+
+## 🧑‍💻 Features
+
+- **Authentication** – Signup, login, and profile update  
+- **Real-time Chat UI** – Chat container, header, and input field  
+- **User Profile Management** – Upload avatar and update profile  
+- **Dark/Light Mode** – Theme switching support  
+- **Loading Skeletons** – For seamless user experience  
+- **Responsive Design** – Works across all devices  
+
+---
+
+## 🛠️ Technologies Used
+
+- **React.js** – Component-based UI  
+- **Vite** – Fast bundler & dev server  
+- **Zustand** – State management  
+- **Axios** – API requests  
+- **Tailwind CSS** – Styling  
+- **ESLint** – Linting & code quality  
+
+---
+
+## 📁 Project Structure
+```bash
+chat-app-frontend/
+├── public/                # Static assets
+├── src/
+│ ├── components/          # Reusable components (Chat, Sidebar, Navbar, Skeletons)
+│ ├── pages/               # App pages (Login, Signup, Home, Profile, Settings)
+│ ├── store/               # Zustand state stores
+│ ├── lib/                 # Utils & axios config
+│ ├── App.jsx              # Root component
+│ ├── main.jsx             # Entry point
+│ └── index.css            # Global styles
+├── index.html             # HTML template
+├── package.json           # Dependencies & scripts
+├── vite.config.js         # Vite configuration
+└── README.md              # Documentation
+
+```
+
+## 📦 Getting Started
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/tusharpardhe18/chat-app-frontend.git
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd chat-app-frontend
+
+3. **Install dependencies**:
+
+   ```bash
+   npm install
+
+4. **Set environment variables: Create a `.env` file in the root:**:
+
+   ```bash
+   VITE_API_URL=http://localhost:5001/api 
+
+5. **Start the development server**:
+
+   ```bash
+   npm run dev
+
+## 📬 Contact
+
+Feel free to reach out to me for any inquiries or collaborations:
+
+- **Email**: [tusharpardhe2018@gmail.com]
+
+- **LinkedIn**: [linkedin.com/in/tushar-pardhe](https://www.linkedin.com/in/tushar-pardhe/)
+
+- **Portfolio**: [tinyurl.com/tushardevportfolio](https://tinyurl.com/tushardevportfolio)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
